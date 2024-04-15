@@ -20,5 +20,9 @@
   "ttl_Forget": "هل نسيت كلمة المرور؟",
   "ttl_Create": "إنشاء حساب",
   "ttl_enter_email": "ادخل بريدك الالكتروني ",
-  "ttl_enter_Password": "ادخل رقمك السري  "
+  "ttl_enter_Password": "ادخل رقمك السري",
+  "ttl_enter_cPassword": "ادخل رقمك السري للتأكيد",
+  "ttl_Create_a_new_account": "انشاء حساب جديد",
+  "ttl_Sign_Up": "إنشاء حساب",
+  "ttl_member": "هل انت مشترك بالفعل؟"
 }

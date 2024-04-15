@@ -17,8 +17,13 @@
   "ttl_email": "Email",
   "ttl_password": "Password",
   "ttl_log_in": "Log In",
+  "ttl_Sign_Up": "Sign Up",
   "ttl_Forget": "Forget password?",
   "ttl_Create": "Create an account",
   "ttl_enter_email": "Enter your email",
-  "ttl_enter_Password": "Enter your password"
+  "ttl_enter_Password": "Enter your password",
+  "ttl_enter_cPassword": "Enter your CPassword",
+  "ttl_Create_a_new_account": "Create a new account",
+  "ttl_First_Name": "First Name",
+  "ttl_member": "Already a member?"
 }

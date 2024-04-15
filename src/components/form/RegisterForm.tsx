@@ -7,6 +7,7 @@ import Button from "../ui/Button";
 import toast from "react-hot-toast";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./../../firebase/firebase";
+import { useTranslation } from "react-i18next";
 
 const RegisterForm = () => {
   const [name, setName] = useState("");
@@ -14,6 +15,7 @@ const RegisterForm = () => {
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { t } = useTranslation();
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -43,20 +45,23 @@ const RegisterForm = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <FormModelAuth ttl=" Hello, Friends!" disc="Create a new account">
+        <FormModelAuth
+          ttl={t("ttl_hello")}
+          disc={t("ttl_Create_a_new_account")}
+        >
           <form
             className="flex flex-col items-center gap-3"
             onSubmit={handleSignup}
           >
             <FormInput
               type="text"
-              placeholder="First_Name"
+              placeholder={t("ttl_First_Name")}
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
             <FormInput
               type="text"
-              placeholder="Enter your Email"
+              placeholder={t("ttl_enter_email")}
               autoComplete="username"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -64,7 +69,7 @@ const RegisterForm = () => {
             <FormInput
               name="password"
               type="password"
-              placeholder="Enter your Password"
+              placeholder={t("ttl_enter_Password")}
               autoComplete="new-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -72,22 +77,22 @@ const RegisterForm = () => {
             <FormInput
               name="Cpassword"
               type="password"
-              placeholder="Enter your CPassword"
+              placeholder={t("ttl_enter_cPassword")}
               autoComplete="new-password"
               value={cpassword}
               onChange={(e) => setCpassword(e.target.value)}
             />
             <Button
-              text="Sign Up"
+              text={t("ttl_Sign_Up")}
               type="submit"
               className="font-bold w-[500px] hover:text-color_danger"
             />
           </form>
 
           <div className="text-white flex item-center justify-center m-3">
-            Already a member?
+            {t("ttl_member")}
             <Link to="/login" className="hover:text-color_danger">
-              Log in
+              {t("ttl_log_in")}
             </Link>
           </div>
         </FormModelAuth>
