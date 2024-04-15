@@ -8,5 +8,17 @@
   "ttl_Humidity": "Humidity",
   "ttl_Wind": "Wind Speed",
   "ttl_Weather": "Weather Icon",
-  "ttl_Direction": "Wind Direction"
+  "ttl_Direction": "Wind Direction",
+  "ttl_LogOut": "Log out",
+  "ttl_register": "Register",
+  "ttl_login": "Login",
+  "ttl_hello": "Hello, Friends!",
+  "ttl_Log_in_to_continue": "Log in to continue",
+  "ttl_email": "Email",
+  "ttl_password": "Password",
+  "ttl_log_in": "Log In",
+  "ttl_Forget": "Forget password?",
+  "ttl_Create": "Create an account",
+  "ttl_enter_email": "Enter your email",
+  "ttl_enter_Password": "Enter your password"
 }

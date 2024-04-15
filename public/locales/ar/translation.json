@@ -8,5 +8,17 @@
   "ttl_Humidity": "رطوبة",
   "ttl_Wind": "سرعة الرياح",
   "ttl_Weather": "أيقونة الطقس",
-  "ttl_Direction": "اتجاه الرياح"
+  "ttl_Direction": "اتجاه الرياح",
+  "ttl_LogOut": "تسجل خروج",
+  "ttl_register": "انشاء حساب",
+  "ttl_login": "تسجل دخول",
+  "ttl_hello": "مرحبا أيها الأصدقاء!",
+  "ttl_Log_in_to_continue": "تسجيل الدخول للمتابعة",
+  "ttl_email": "بريد إلكتروني",
+  "ttl_password": "كلمة المرور",
+  "ttl_log_in": "تسجيل الدخول",
+  "ttl_Forget": "هل نسيت كلمة المرور؟",
+  "ttl_Create": "إنشاء حساب",
+  "ttl_enter_email": "ادخل بريدك الالكتروني ",
+  "ttl_enter_Password": "ادخل رقمك السري  "
 }

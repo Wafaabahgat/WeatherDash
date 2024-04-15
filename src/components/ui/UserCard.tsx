@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoIosLogOut } from "react-icons/io";
 import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "@firebase/auth";
+import { onAuthStateChanged, signOut } from "@firebase/auth";
 import { FaUserCircle } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import {
@@ -10,79 +10,86 @@ import {
 } from "../../redux/slice/authSlice";
 import ShowOnLogin, { ShowOnLogout } from "./HideLink";
 import { auth } from "./../../firebase/firebase";
+import { useTranslation } from "react-i18next";
 
 const UserCard = () => {
-  const [email, setemail] = useState("");
-  const [displayName, setdisplayName] = useState("");
-  const disptch = useDispatch();
+  const [user, setUser] = useState(null); // Track user state
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // const uid = user.uid;
-        // console.log(user);
-        if (user.displayName == null) {
-          const u1 = user.email.slice(0, -10);
-          console.log(u1);
-          setdisplayName(u1);
-        } else {
-          user.displayName;
-        }
-        setdisplayName(user.displayName);
-        disptch(
+        setUser(user); // Set user state
+        dispatch(
           SET_ACTIVE_USER({
             email: user.email,
-            useName: user.displayName ? user.displayName : displayName,
+            userName: user.displayName || user.email.slice(0, -10), // Set username based on displayName or email
             userID: user.uid,
           })
         );
       } else {
-        console.log("No display name found"); // Add this line
-        disptch(
+        setUser(null); // Clear user state
+        dispatch(
           REMOVE_ACTIVE_USER({
-            email: user.email,
-            useName: user.displayName ? user.displayName : displayName,
-            userID: user.uid,
+            email: "",
+            userName: "",
+            userID: "",
             isLoggedIn: false,
           })
         );
       }
     });
-  }, [displayName, disptch]);
+
+    return () => unsubscribe(); // Cleanup function
+  }, [dispatch]);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/login");
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
 
   return (
-    <form className=" bg-color_white shadow-md rounded-md max-w-[400px] min-w-[210px] border-slate-400 border absolute top-16 right-1 z-50">
+    <form className="bg-color_white shadow-md rounded-md max-w-[400px] min-w-[210px] border-slate-400 border absolute top-16 right-1 z-50">
       <div className="text-xl">
         <ul className="text-dark_blue">
-          {/* name */}
+          {/* Display user information if logged in */}
           <ShowOnLogin>
             <li className="p-4">
               <a className="flex gap-1 items-center">
                 <FaUserCircle />
-                Hi, {displayName}
+                Hi, {user?.displayName || user?.email.slice(0, -10)}
               </a>
             </li>
             <span className="bg-slate-300 block h-[1px] "></span>
           </ShowOnLogin>
 
-          {/* Login&&register */}
+          {/* Display login and register links if logged out */}
           <ShowOnLogout>
             <li className="hover:text-color_danger p-4 text-center">
-              <Link to="/login">Login</Link>
+              <Link to="/login">{t("ttl_login")}</Link>
             </li>
             <span className="bg-slate-300 block h-[1px]"></span>
             <li className="hover:text-color_danger p-4 text-center">
-              <Link to="/register">Register</Link>
+              <Link to="/register">{t("ttl_register")}</Link>
             </li>
             <span className="bg-slate-300 block h-[1px] "></span>
           </ShowOnLogout>
 
-          {/* Logout */}
+          {/* Display logout link if logged in */}
           <ShowOnLogin>
-            <span className=" bg-slate-300 block h-[1px]"></span>
-            <li className="hover:text-color_danger p-4 flex items-center justify-center gap-1">
+            <span className="bg-slate-300 block h-[1px]"></span>
+            <li
+              className="hover:text-color_danger p-4 flex items-center justify-center gap-1"
+              onClick={handleLogout} // Call handleLogout function on click
+            >
               <IoIosLogOut />
-              <Link to="/login">Log out</Link>
+              <span> {t("ttl_LogOut")}</span>
             </li>
           </ShowOnLogin>
         </ul>
