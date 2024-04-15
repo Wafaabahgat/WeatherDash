@@ -55,7 +55,7 @@ const UserCard = () => {
   };
 
   return (
-    <form className="bg-color_white shadow-md rounded-md max-w-[400px] min-w-[210px] border-slate-400 border absolute top-16 left-0 right-1 z-50">
+    <form className="bg-color_white shadow-md rounded-md max-w-[400px] min-w-[210px] border-slate-400 border absolute top-16 rtl:left-0 ltr:right-1 z-50">
       <div className="text-xl">
         <ul className="text-dark_blue">
           {/* Display user information if logged in */}

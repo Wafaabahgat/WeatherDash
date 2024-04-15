@@ -1,4 +1,3 @@
-import React from "react";
 import { FC, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -15,8 +14,9 @@ const languages = [
     name: "العربية",
   },
 ];
+
 const Header: FC<HeaderProps> = () => {
-  const { i18n, t } = useTranslation();
+  const { i18n } = useTranslation();
   const currentLanguage =
     i18n.language && (i18n.language == "en" || i18n.language == "ar")
       ? i18n.language
