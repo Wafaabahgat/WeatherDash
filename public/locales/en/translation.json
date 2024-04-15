@@ -25,5 +25,9 @@
   "ttl_enter_cPassword": "Enter your CPassword",
   "ttl_Create_a_new_account": "Create a new account",
   "ttl_First_Name": "First Name",
-  "ttl_member": "Already a member?"
+  "ttl_member": "Already a member?",
+  "ttl_Submit": "Submit",
+  "ttl_Choose_city": "Choose a City",
+  "ttl_Choose_state": "Choose a state",
+  "ttl_Choose_country": "Choose a country",
 }

@@ -25,9 +25,6 @@ const Menu = () => {
       document.removeEventListener("click", handleClick);
     };
   }, []);
-  //   const handleLogout = () => {
-  //     window.location.href = "/login";
-  //   };
 
   return (
     <div ref={menuRef}>

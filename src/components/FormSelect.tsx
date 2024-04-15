@@ -67,7 +67,7 @@ const FormSelect: FC<FormProps> = ({ className }) => {
             value={selectedCountry}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
-            <option selected>Choose a country</option>
+            <option selected>{t("ttl_Choose_country")}</option>
             {data?.map((e) => (
               <option value={e?.country}> {e.country}</option>
             ))}
@@ -88,7 +88,7 @@ const FormSelect: FC<FormProps> = ({ className }) => {
               value={selectedstate}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option selected>Choose a state</option>
+              <option selected>{t("ttl_Choose_state")}</option>
               {stateSelector?.data?.map((e) => (
                 <option value={e?.state}> {e.state}</option>
               ))}
@@ -112,7 +112,7 @@ const FormSelect: FC<FormProps> = ({ className }) => {
               value={selectedcity}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option selected>Choose a city</option>
+              <option selected>{t("ttl_Choose_city")}</option>
               {citySelector?.data?.map((e) => (
                 <option value={e?.city}> {e.city}</option>
               ))}
@@ -126,7 +126,7 @@ const FormSelect: FC<FormProps> = ({ className }) => {
           type="submit"
           className="py-2 px-8 bg-green-700 text-slate-50 rounded-lg"
         >
-          Submit
+          {t("ttl_Submit")}
         </button>
       </form>
     </div>
