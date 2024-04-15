@@ -5,12 +5,12 @@ import { useState } from "react";
 
 const languages = [
   {
-    key: "ar",
-    name: "العربية",
-  },
-  {
     key: "en",
     name: "English",
+  },
+  {
+    key: "ar",
+    name: "العربية",
   },
 ];
 
@@ -38,26 +38,29 @@ const Header = () => {
             weather<span className="text-color_danger">Dash</span>
           </div>
         </Link>
-        <div className="flex gap-2 items-center">
-          <div className="p-1 grid grid-cols-2 gap-2" role="none">
-            {languages.map((language, index) => {
-              return (
-                <button
-                  key={language.key}
-                  onClick={() => handleLanguageChange(language)}
-                  className={`px-4 py-2 text-sm text-start items-center hover:bg-color_danger inline-flex gap-1 bg-gray-100 ${
-                    index % 2 === 0 ? "rounded-l" : "rounded-r"
-                  }`}
-                  role="menuitem"
-                >
-                  {/* <FlagIcon countryCode={language.key}/> */}
 
-                  <span className="truncate">{language.name}</span>
-                </button>
-              );
-            })}
-          </div>
-          <Menu />
+        <Menu />
+        <div className="p-1 grid grid-cols-2 gap-2" role="none">
+          {languages.map((language, index) => {
+            return (
+              <button
+                key={language.key}
+                onClick={() => handleLanguageChange(language)}
+                className={`px-4 py-2 text-sm text-start items-center inline-flex gap-1 hover:bg-gray-100 ${
+                  index % 2 === 0 ? "rounded-r" : "rounded-l"
+                }`}
+                role="menuitem"
+              >
+                {/* <FlagIcon countryCode={language.key}/> */}
+                <img
+                  src={language.key == "ar" ? s : u}
+                  className="w-5 h-4"
+                  alt=""
+                />
+                <span className="truncate">{language.name}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>

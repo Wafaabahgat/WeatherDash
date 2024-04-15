@@ -38,7 +38,8 @@ const Header = () => {
             weather<span className="text-color_danger">Dash</span>
           </div>
         </Link>
-        <div className="flex gap-2 items-center">
+        <div>
+          <Menu />
           <div className="p-1 grid grid-cols-2 gap-2" role="none">
             {languages.map((language, index) => {
               return (
@@ -57,7 +58,6 @@ const Header = () => {
               );
             })}
           </div>
-          <Menu />
         </div>
       </div>
     </div>

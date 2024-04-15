@@ -41,6 +41,7 @@ const Header = () => {
         <div className="flex gap-2 items-center">
           <div className="p-1 grid grid-cols-2 gap-2" role="none">
             {languages.map((language, index) => {
+          <Menu />
               return (
                 <button
                   key={language.key}
@@ -57,7 +58,6 @@ const Header = () => {
               );
             })}
           </div>
-          <Menu />
         </div>
       </div>
     </div>
