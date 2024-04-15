@@ -46,7 +46,6 @@ const Header: FC<HeaderProps> = () => {
 
   return (
     <div>
-       
       {isOpen && (
         <div
           className="z-[999] ltr:origin-top-right rtl:origin-top-left absolute ltr:right-6 rtl:left-6 mt-4 w-[230px] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
@@ -65,11 +64,6 @@ const Header: FC<HeaderProps> = () => {
                   }`}
                   role="menuitem"
                 >
-                  <img
-                    src={language.key == "ar" ? s : u}
-                    className="w-5 h-4"
-                    alt=""
-                  />
                   <span className="truncate">{language.name}</span>
                 </button>
               );

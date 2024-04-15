@@ -8,9 +8,9 @@ import {
   SET_ACTIVE_USER,
   REMOVE_ACTIVE_USER,
 } from "../../redux/slice/authSlice";
-import ShowOnLogin, { ShowOnLogout } from "./HideLink";
 import { auth } from "./../../firebase/firebase";
 import { useTranslation } from "react-i18next";
+import { ShowOnLogin, ShowOnLogout } from "./HideLink";
 
 const UserCard = () => {
   const [user, setUser] = useState(null); // Track user state

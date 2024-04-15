@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/slice/authSlice";
 
-const ShowOnLogin = ({ children }) => {
+export const ShowOnLogin = ({ children }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   if (isLoggedIn) {
@@ -18,5 +18,3 @@ export const ShowOnLogout = ({ children }) => {
   }
   return null;
 };
-
-export default ShowOnLogin;
