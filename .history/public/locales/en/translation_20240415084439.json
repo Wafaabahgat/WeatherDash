@@ -1,0 +1,7 @@
+{
+  "ttl_country": "country",
+  "ttl_state": "state",
+  "ttl_city": "city",
+  "ttl_Timestamp": "Timestamp",
+  "ttl_Temperature"
+}

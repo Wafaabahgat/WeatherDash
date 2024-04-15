@@ -1,0 +1,11 @@
+{
+ "ttl_country": "دوله",
+ "ttl_state": "ولايه",
+ "ttl_city": "مدينة",
+ "ttl_Timestamp": "الطابع الزمني",
+  "ttl_Temperature": "Temperature",
+  "ttl_Pressure": "Pressure",
+  "ttl_Humidity": "رطوبة",
+  "ttl_Wind": "Wind Speed",
+  "ttl_Weather": "Weather Icon",
+  "ttl_Direction":"Wind Direction",}
