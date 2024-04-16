@@ -2,9 +2,13 @@ import { Link, useNavigate } from "react-router-dom";
 import FormModelAuth from "../models/form-model-auth";
 import Loader from "../ui/Loader";
 import FormInput from "./FormInput";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../ui/Button";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import toast from "react-hot-toast";
 
 // import {
@@ -16,6 +20,7 @@ import toast from "react-hot-toast";
 // import toast from "react-hot-toast";
 import { auth } from "./../../firebase/firebase";
 import { useTranslation } from "react-i18next";
+import Cookies from "universal-cookie";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -42,6 +47,18 @@ const LoginForm = () => {
         setIsLoading(false);
       });
   };
+
+  useEffect(() => {
+    const auth = getAuth();
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate("/");
+      } else {
+        navigate("/login");
+      }
+    });
+  }, []);
 
   return (
     <>
